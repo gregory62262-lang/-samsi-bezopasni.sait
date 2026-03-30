@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Доверяй но проверяй</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .button {
+            background-color: rgb(0, 255, 47);
+            color: white;
+            font-size: 24px;
+            padding: 30px 60px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgb(4, 255, 0);
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background-color: rgb(0, 139, 32);
+            box-shadow: 0 0 40px rgb(0, 255, 85);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<button class="button" onclick="goToLink()">нажми на меня (:<</button>
+
+<script>
+    function goToLink() {
+        // Открываем видео
+        const win = window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+
+        // Пытаемся включить полноэкранный режим
+        if (win) {
+            win.onload = function () {
+                const docElm = win.document.documentElement;
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen();
+                }
+            };
+        }
+    }
+</script>
+
+</body>
+</html>
